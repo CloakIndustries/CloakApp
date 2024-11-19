@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -6,30 +6,31 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
-} from "react-native";
-import InputField from "../component/InputField";
-import HeadText from "../component/HeadText";
-import Subtext from "../component/Subtext";
-import CustomButton from "../component/CustomButton";
+} from 'react-native';
+import InputField from '../component/InputField';
 
-const Login = ({ navigation }) => {
-  const [phoneNumber, setPhoneNumber] = useState("");
+import Subtext from '../component/Subtext';
+import CustomButton from '../component/CustomButton';
+import HeadText from '../component/Headtext';
+
+const Login = ({navigation}) => {
+  const [phoneNumber, setPhoneNumber] = useState('');
 
   return (
     <View style={styles.container}>
-      <HeadText headtext={"Login Account"} />
-      <Subtext subtext={"Hello, welcome back to our account"} />
+      <HeadText headtext={'Login Account'} />
+      <Subtext subtext={'Hello, welcome back to our account'} />
 
       <InputField
-        keyboardType={"phone-pad"}
-        placeholderName={"Phone Number"}
+        keyboardType={'phone-pad'}
+        placeholderName={'Phone Number'}
         value={phoneNumber}
-        onChange={(text) => setPhoneNumber(text)}
+        onChange={text => setPhoneNumber(text)}
       />
 
       <CustomButton
-        buttonText={"Request OTP"}
-        onPress={() => navigation.navigate("OTPScreen")}
+        buttonText={'Request OTP'}
+        onPress={() => navigation.navigate('OTPScreen')}
       />
     </View>
   );
@@ -38,33 +39,33 @@ const Login = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     paddingHorizontal: 20,
     paddingVertical: 40,
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 10,
   },
   subtitle: {
     fontSize: 14,
-    color: "gray",
+    color: 'gray',
     marginBottom: 30,
   },
   switchContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginBottom: 20,
   },
   switchText: {
     fontSize: 16,
   },
   inputContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     borderWidth: 1,
-    borderColor: "lightgray",
+    borderColor: 'lightgray',
     borderRadius: 8,
     paddingHorizontal: 10,
     marginBottom: 20,
@@ -79,35 +80,35 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   button: {
-    backgroundColor: "#a0c4c4",
+    backgroundColor: '#a0c4c4',
     borderRadius: 8,
-    alignItems: "center",
+    alignItems: 'center',
     paddingVertical: 10,
     marginBottom: 20,
   },
   buttonText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 16,
   },
   orText: {
-    textAlign: "center",
-    color: "gray",
+    textAlign: 'center',
+    color: 'gray',
     marginBottom: 10,
   },
   googleButton: {
     borderWidth: 1,
-    borderColor: "lightgray",
+    borderColor: 'lightgray',
     borderRadius: 8,
-    alignItems: "center",
+    alignItems: 'center',
     paddingVertical: 10,
   },
   googleText: {
-    color: "black",
+    color: 'black',
     fontSize: 16,
   },
   footerText: {
-    textAlign: "center",
-    color: "gray",
+    textAlign: 'center',
+    color: 'gray',
     marginTop: 20,
   },
 });

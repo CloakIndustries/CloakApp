@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 
-const HeadText = ({ headtext }) => {
+const HeadText = props => {
+  const {headtext} = props;
   return (
     <View>
       <Text style={styles.title}>{headtext}</Text>
@@ -14,7 +15,7 @@ export default HeadText;
 const styles = StyleSheet.create({
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 10,
   },
 });
