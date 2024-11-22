@@ -1,7 +1,12 @@
-import React from "react";
-import AppNaviagtor from "./src/navigation/AppNaviagtor";
+import React from 'react';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import AppNaviagtor from './src/navigation/AppNaviagtor';
 
 const App = () => {
-  return <AppNaviagtor />;
+  return (
+    <SafeAreaProvider>
+      <AppNaviagtor />
+    </SafeAreaProvider>
+  );
 };
 export default App;

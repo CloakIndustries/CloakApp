@@ -2,10 +2,10 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
 const HeadText = props => {
-  const {headtext} = props;
+  const {headtext, propstyle} = props;
   return (
     <View>
-      <Text style={styles.title}>{headtext}</Text>
+      <Text style={[styles.title, propstyle]}>{headtext}</Text>
     </View>
   );
 };
