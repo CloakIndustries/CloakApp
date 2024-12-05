@@ -1,14 +1,16 @@
 import {StyleSheet, TextInput, View} from 'react-native';
 import React from 'react';
+import {Colors} from '../utill/Colors';
 
 const InputField = props => {
-  const {placeholderName, keyboardType, onChange, value} = props;
+  const {placeholderName, keyboardType, onChange, value, editable} = props;
   return (
     <View style={styles.inputContainer}>
       <TextInput
+        editable={editable}
         style={styles.input}
         placeholder={placeholderName}
-        placeholderTextColor={'#818281'}
+        placeholderTextColor={Colors.fadeText}
         keyboardType={keyboardType}
         value={value}
         onChangeText={onChange}

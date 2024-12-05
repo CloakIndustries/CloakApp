@@ -13,9 +13,10 @@ import CustomButton from '../component/CustomButton';
 import HeadText from '../component/Headtext';
 import {Colors} from '../utill/Colors';
 import {Divider} from '@rneui/themed';
-import {fonts} from '@rneui/base';
+import {useNavigation} from '@react-navigation/native';
 
-const Login = ({navigation}) => {
+const Login = () => {
+  const navigation = useNavigation();
   const [phoneNumber, setPhoneNumber] = useState('');
   const [isOtp, setIsOtp] = useState(false);
   const [otp, setOtp] = useState(['', '', '', '']);
@@ -91,6 +92,15 @@ const Login = ({navigation}) => {
                 buttonText={'Request OTP'}
                 onPress={() => handelSendOtp()}
               />
+              <Divider inset={true} insetType="middle" width={1} />
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Signup')}
+                style={{alignItems: 'center', marginVertical: 10}}>
+                <Subtext
+                  subtext={'Create New Account'}
+                  propStyle={{color: Colors.secondary}}
+                />
+              </TouchableOpacity>
             </View>
           </>
         ) : (
