@@ -3,7 +3,7 @@ import React from 'react';
 
 const CustomButton = ({onPress, buttonText, style}) => {
   return (
-    <TouchableOpacity style={!style ? styles.button : style} onPress={onPress}>
+    <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
       <Text style={styles.buttonText}>{buttonText}</Text>
     </TouchableOpacity>
   );
@@ -22,5 +22,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontSize: 16,
+    fontWeight: 'bold',
   },
 });
