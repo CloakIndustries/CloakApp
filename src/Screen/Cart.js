@@ -10,6 +10,7 @@ import {
 import {Colors} from '../utill/Colors';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import CustomButton from '../component/CustomButton';
+import HeadText from '../component/Headtext';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -38,7 +39,7 @@ const Cart = () => {
       />
       <View style={styles.itemDetails}>
         <Text style={styles.itemTitle}>{item.title}</Text>
-        <Text style={styles.itemPrice}>${item.price}</Text>
+        <Text style={styles.itemPrice}>₹{item.price}</Text>
         <Text style={styles.itemSize}>Size: {item.selectedSize}</Text>
 
         <View style={styles.quantityContainer}>
@@ -66,22 +67,31 @@ const Cart = () => {
 
   return (
     <View style={styles.container}>
-      {/* <FlatList
-        data={cartItems}
-        renderItem={renderCartItem}
-        keyExtractor={item => item.id}
-        contentContainerStyle={styles.cartList}
-      /> */}
+      <View style={styles.headerContainer}>
+        <HeadText
+          headtext="Cart"
+          propstyle={{textAlign: 'center', color: Colors.secondary}}
+        />
+      </View>
+
       {cartItems.length > 0 ? (
-        <View style={styles.footer}>
-          <Text style={styles.total}>Total: ${totalAmount.toFixed(2)}</Text>
-          <CustomButton
-            buttonText="Proceed to Checkout"
-            onPress={() => {
-              /* Handle checkout */
-            }}
+        <>
+          <FlatList
+            data={cartItems}
+            renderItem={renderCartItem}
+            keyExtractor={item => item.id}
+            contentContainerStyle={styles.cartList}
           />
-        </View>
+          <View style={styles.footer}>
+            <Text style={styles.total}>Total: ${totalAmount.toFixed(2)}</Text>
+            <CustomButton
+              buttonText="Proceed to Checkout"
+              onPress={() => {
+                /* Handle checkout */
+              }}
+            />
+          </View>
+        </>
       ) : (
         <Text style={styles.emptyCart}>Your cart is empty</Text>
       )}
@@ -93,6 +103,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.fadeBG,
+  },
+  headerContainer: {
+    margin: 15,
   },
   header: {
     fontSize: 24,

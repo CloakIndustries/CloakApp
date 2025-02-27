@@ -17,6 +17,7 @@ import AddShippingAddress from '../Screen/Setting/AddShippingAddress';
 import Favourite from '../Screen/Setting/Favourite';
 import Order from '../Screen/Setting/Order';
 import ProductDetails from '../Screen/ProductDetails';
+import CategoryProducts from '../Screen/CategoryProducts';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -58,6 +59,29 @@ const AppStack = () => {
     </Stack.Navigator>
   );
 };
+
+const CategoriesStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="Categories"
+        component={Category}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="CategoryProducts"
+        component={CategoryProducts}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="ProductDetails"
+        component={ProductDetails}
+      />
+    </Stack.Navigator>
+  );
+};
+
 const SettingStack = () => {
   return (
     <Stack.Navigator>
@@ -115,8 +139,8 @@ const BottomTabs = () => {
 
         <Tab.Screen
           options={{tabBarLabel: 'Categories'}}
-          name="Categories"
-          component={Category}
+          name="Category"
+          component={CategoriesStack}
         />
         <Tab.Screen
           options={{tabBarLabel: 'Setting'}}
@@ -132,7 +156,7 @@ const AppNaviagtor = () => {
   const [isLogged, setIsLogged] = useState(false);
   return (
     <NavigationContainer onReady={() => changeNavigationBarColor('#818281')}>
-      {isLogged ? <AuthStack /> : <BottomTabs />}
+      {!isLogged ? <AuthStack /> : <BottomTabs />}
     </NavigationContainer>
   );
 };

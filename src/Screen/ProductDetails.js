@@ -24,7 +24,6 @@ const ProductDetails = ({route, navigation}) => {
       return;
     }
     // Add to cart logic here
-    navigation.navigate('Cart');
   };
 
   const renderStars = rating => {
@@ -64,7 +63,7 @@ const ProductDetails = ({route, navigation}) => {
 
         <View style={styles.detailsContainer}>
           <Text style={styles.title}>{product.title}</Text>
-          <Text style={styles.price}>${product.price}</Text>
+          <Text style={styles.price}>₹{product.price}</Text>
 
           <View style={styles.ratingContainer}>
             {renderStars(product.rating)}
@@ -75,25 +74,27 @@ const ProductDetails = ({route, navigation}) => {
           <Text style={styles.description}>{product.description}</Text>
 
           <Text style={styles.sectionTitle}>Select Size</Text>
-          <View style={styles.sizesContainer}>
-            {product.sizes.map(size => (
-              <TouchableOpacity
-                key={size}
-                style={[
-                  styles.sizeButton,
-                  selectedSize === size && styles.selectedSize,
-                ]}
-                onPress={() => setSelectedSize(size)}>
-                <Text
+          {product.sizes && (
+            <View style={styles.sizesContainer}>
+              {product.sizes.map(size => (
+                <TouchableOpacity
+                  key={size}
                   style={[
-                    styles.sizeText,
-                    selectedSize === size && styles.selectedSizeText,
-                  ]}>
-                  {size}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </View>
+                    styles.sizeButton,
+                    selectedSize === size && styles.selectedSize,
+                  ]}
+                  onPress={() => setSelectedSize(size)}>
+                  <Text
+                    style={[
+                      styles.sizeText,
+                      selectedSize === size && styles.selectedSizeText,
+                    ]}>
+                    {size}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          )}
 
           <CustomButton
             style={styles.addToCartButton}

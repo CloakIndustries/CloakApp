@@ -118,6 +118,7 @@ const Settings = () => {
       <View>
         {data?.map((item, index) => (
           <IcontextBox
+            key={index}
             tagline={item.name}
             iconname={item.iconname}
             type={item.type}
